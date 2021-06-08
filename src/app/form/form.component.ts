@@ -9,11 +9,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class FormComponent implements OnInit {
   form!: FormGroup;
-  tutorial: any;
+  data: any;
   loader: boolean = false;
 
   constructor(firestore: AngularFirestore) {
-    this.tutorial = firestore.collection("dataform");
+    this.data = firestore.collection("dataform");
   }
 
   ngOnInit() {
@@ -28,7 +28,8 @@ export class FormComponent implements OnInit {
   }
 
   submit() {
-    this.tutorial.add({...this.form.value});
+    const formData = {...this.form.value};
+    this.data.add(formData);
     this.loader = true;
     setTimeout(() => {
       this.form.reset();
