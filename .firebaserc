@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "test11-1232b": {
+      "hosting": {
+        "test-form": [
+          "test11-1232b"
+        ]
+      }
+    }
+  }
+}
