@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestoreCollection } from "@angular/fire/firestore/collection/collection";
+import { Date } from '../Date';
 
 @Component({
   selector: 'app-form',
@@ -9,7 +11,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class FormComponent implements OnInit {
   form!: FormGroup;
-  data: any;
+  data: AngularFirestoreCollection<Date>;
   loader: boolean = false;
 
   constructor(firestore: AngularFirestore) {
@@ -22,7 +24,7 @@ export class FormComponent implements OnInit {
       email: new FormControl('', [
         Validators.email, Validators.required
       ]),
-      phone: new FormControl('', [Validators.required, Validators.maxLength(11)])
+      phone: new FormControl('', [Validators.required])
     });
 
   }
