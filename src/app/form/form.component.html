@@ -1,15 +1,38 @@
 <form [formGroup]="form" (ngSubmit)="submit()" class="form">
   <div class="mb-3">
     <label for="formControlInput" class="form-label">Name</label>
-    <input type="text" name="name" formControlName="name" class="form-control" placeholder="Name" id="formControlInput">
+    <input
+      type="text"
+      name="name"
+      formControlName="name"
+      class="form-control"
+      placeholder="Name"
+      id="formControlInput"
+    >
   </div>
   <div class="mb-3">
     <label for="formControlInput1" class="form-label">Email address</label>
-    <input type="text" name="e-mail" formControlName="email" placeholder="E-mail" class="form-control" id="formControlInput1">
+    <input
+      type="text"
+      name="e-mail"
+      formControlName="email"
+      placeholder="E-mail"
+      class="form-control"
+      id="formControlInput1"
+      pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+    >
   </div>
   <div class="mb-3">
     <label for="formControlInput2" class="form-label">Phone</label>
-    <input type="text" name="phone" formControlName="phone" placeholder="79994521669" class="form-control" id="formControlInput2" pattern="[0-9]{11}">
+    <input
+      type="text"
+      name="phone"
+      formControlName="phone"
+      placeholder="79994521669"
+      class="form-control"
+      id="formControlInput2"
+      pattern="[0-9]{11}"
+    >
     <p *ngIf="form.controls.phone.invalid && form.controls.phone.touched">В номере должны присутствовать только цифры</p>
   </div>
   <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
